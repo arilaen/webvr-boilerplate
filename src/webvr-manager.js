@@ -62,9 +62,9 @@ function WebVRManager(renderer, effect, params) {
       case Modes.MAGIC_WINDOW:
         this.setMode_(Modes.MAGIC_WINDOW);
         break;
-      case Modes.VR:
-        this.enterVRMode_();
-        this.setMode_(Modes.VR);
+      case Modes.VR: //Disabling VR Mode
+        //this.enterVRMode_();
+        this.setMode_(Modes.NORMAL);
         break;
       default:
         this.setMode_(Modes.NORMAL);
