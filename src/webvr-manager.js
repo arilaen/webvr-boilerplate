@@ -62,10 +62,6 @@ function WebVRManager(renderer, effect, params) {
       case Modes.MAGIC_WINDOW:
         this.setMode_(Modes.MAGIC_WINDOW);
         break;
-      case Modes.VR: //Disabling VR Mode
-        //this.enterVRMode_();
-        this.setMode_(Modes.MAGIC_WINDOW);
-        break;
       default:
         this.setMode_(Modes.NORMAL);
     }
@@ -189,7 +185,7 @@ WebVRManager.prototype.onVRClick_ = function() {
   if (this.mode == Modes.NORMAL && Util.isIOS() && Util.isIFrame()) {
     var url = window.location.href;
     url = Util.appendQueryParameter(url, 'no_fullscreen', 'true');
-    url = Util.appendQueryParameter(url, 'start_mode', Modes.VR);
+    //url = Util.appendQueryParameter(url, 'start_mode', Modes.VR);
     top.location.href = url;
     return;
   }
@@ -224,11 +220,11 @@ WebVRManager.prototype.exitFullscreen_ = function() {
 
 WebVRManager.prototype.onVRDisplayPresentChange_ = function(e) {
   console.log('onVRDisplayPresentChange_', e);
-  if (this.hmd.isPresenting) {
-    this.setMode_(Modes.VR);
-  } else {
+  // if (this.hmd.isPresenting) {
+  //   this.setMode_(Modes.VR);
+  // } else {
     this.setMode_(Modes.NORMAL);
-  }
+  //}
 };
 
 WebVRManager.prototype.onVRDisplayDeviceParamsChange_ = function(e) {
